@@ -3,19 +3,19 @@ UE_LOG(Log${1:Category}, ${2:VeryVerbose,Verbose,Log,Warning,Display,Error,Fatal
 endsnippet
 
 snippet verbose "Verbose log" b
-UE_LOG(Log${1:Category}, Verbose, ${2:TEXT("${3:Message}")}, ${4:...});$0
+UE_LOG(Log${1:Category}, Verbose, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
 
 snippet log "Standard log" b
-UE_LOG(Log${1:Category}, Log, ${2:TEXT("${3:Message}")}, ${4:...});$0
+UE_LOG(Log${1:Category}, Log, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
 
 snippet warn "Warning log" b
-UE_LOG(Log${1:Category}, Warning, ${2:TEXT("${3:Message}")}, ${4:...});$0
+UE_LOG(Log${1:Category}, Warning, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
 
 snippet err "Error log" b
-UE_LOG(Log${1:Category}, Error, ${2:TEXT("${3:Message}")}, ${4:...});$0
+UE_LOG(Log${1:Category}, Error, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
 
 snippet logcat "Declare and define a log category." b
