@@ -1,0 +1,20 @@
+snippet uelog "UE_LOG will all options" b
+UE_LOG(Log${1:Category}, ${2:VeryVerbose,Verbose,Log,Warning,Display,Error,Fatal}, ${3:TEXT("${4:Messag}")}, ${5:...});$0
+endsnippet
+
+snippet verbose "Verbose log" b
+UE_LOG(Log${1:Category}, Verbose, ${2:TEXT("${3:Message}")}, ${4:...});$0
+endsnippet
+
+snippet log "Standard log" b
+UE_LOG(Log${1:Category}, Log, ${2:TEXT("${3:Message}")}, ${4:...});$0
+endsnippet
+
+snippet warn "Warning log" b
+UE_LOG(Log${1:Category}, Warning, ${2:TEXT("${3:Message}")}, ${4:...});$0
+endsnippet
+
+snippet err "Error log" b
+UE_LOG(Log${1:Category}, Error, ${2:TEXT("${3:Message}")}, ${4:...});$0
+endsnippet
+
