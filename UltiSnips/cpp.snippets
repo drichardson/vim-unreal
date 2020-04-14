@@ -18,3 +18,33 @@ snippet err "Error log" b
 UE_LOG(Log${1:Category}, Error, ${2:TEXT("${3:Message}")}, ${4:...});$0
 endsnippet
 
+snippet logcat "Declare and define a log category." b
+DECLARE_LOG_CATEGORY_EXTERN(Log${1:Category}, Log, All);
+DEFINE_LOG_CATEGORY(Log$1);$0
+endsnippet
+
+snippet actor
+UCLASS()
+class SHOOTERGAME_API A${1:MyActor}: public AActor
+{
+	GENERATED_BODY();
+
+public:
+
+	A$1();
+
+	$0
+};
+endsnippet
+
+snippet prop
+UPROPERTY(${3:EditDefaultsOnly,BlueprintReadOnly,Replicated,Transient})
+${1:type} ${2:MyVar};$0
+endsnippet
+
+snippet func
+UFUNCTION(${4:BlueprintPure,BlueprintImplementableEvent,BlueprintNativeEvent})
+${1:type} ${2:MyFunc}(${3:args});
+endsnippet
+
+# vim: noet ts=4 sw=4
