@@ -1,4 +1,7 @@
-snippet uelog "UE_LOG will all options" b
+
+# Logging
+
+snippet ulog "UE_LOG will all warning levels" b
 UE_LOG(Log${1:Category}, ${2:VeryVerbose,Verbose,Log,Warning,Display,Error,Fatal}, ${3:TEXT("${4:Message}")}, ${5:...});$0
 endsnippet
 
@@ -23,11 +26,14 @@ DECLARE_LOG_CATEGORY_EXTERN(Log${1:Category}, Log, All);
 DEFINE_LOG_CATEGORY(Log$1);$0
 endsnippet
 
-snippet actor
+
+# Classes
+
+snippet actor "Declare an AActor subclass." b
 UCLASS()
 class SHOOTERGAME_API A${1:MyActor}: public AActor
 {
-	GENERATED_BODY();
+	GENERATED_BODY()
 
 public:
 
@@ -37,14 +43,70 @@ public:
 };
 endsnippet
 
-snippet prop
+snippet ustruct "Declare a USTRUCT" b
+USTRUCT(${2:BlueprintType})
+struct F${1:MyStruct}
+{
+	GENERATED_BODY()
+
+	F${1:}() {}
+
+	$0
+};
+endsnippet
+
+snippet uprop "Declare a UPROPERTY" b
 UPROPERTY(${3:EditDefaultsOnly,BlueprintReadOnly,Replicated,Transient})
 ${1:type} ${2:MyVar};$0
 endsnippet
 
-snippet func
+snippet ufunc "Declare a UFUNCTION" b
 UFUNCTION(${4:BlueprintPure,BlueprintImplementableEvent,BlueprintNativeEvent})
 ${1:type} ${2:MyFunc}(${3:args});
+endsnippet
+
+# Delegates and Multicast Delegates
+
+snippet del "No parameter delegate" b
+DECLARE_${1:MULTICAST_}DELEGATE(F${2:MyDelegateName});$0
+endsnippet
+
+snippet del1 "1 param delegate" b
+DECLARE_${1:MULTICAST_}DELEGATE_OneParam(F${2:MyDelegateName}, ${3:Type});$0
+endsnippet
+
+snippet del2 "2 param delegate" b
+DECLARE_${1:MULTICAST_}DELEGATE_TwoParams(F${2:MyDelegateName}, ${3:Type}, ${4:Type});$0
+endsnippet
+
+snippet del3 "3 param delegate" b
+DECLARE_${1:MULTICAST_}DELEGATE_ThreeParams(F${2:MyDelegateName}, ${3:Type}, ${4:Type}, ${5:Type});$0
+endsnippet
+
+snippet del4 "4 param delegate" b
+DECLARE_${1:MULTICAST_}DELEGATE_FourParams(F${2:MyDelegateName}, ${3:Type}, ${4:Type}, ${5:Type}, ${6:Type});$0
+endsnippet
+
+# Dynamic Multicast Delegates
+
+snippet ddel "No parameter dynamic multicast delegate" b
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(F${1:MyDelegateName});$0
+endsnippet
+
+snippet ddel1 "1 param dynamic multicast delegate" b
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(F${1:MyDelegateName}, ${2:Type}, ${3:Name});$0
+endsnippet
+
+snippet ddel2 "2 param dynamic multicast delegate" b
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(F${1:MyDelegateName}, ${2:Type}, ${3:Name}, ${4:Type}, ${5:Name});$0
+endsnippet
+
+snippet ddel3 "3 param dynamic multicast delegate" b
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(F${1:MyDelegateName}, ${2:Type}, ${3:Name}, ${4:Type}, ${5:Name}, ${6:Type}, ${7:Name});$0
+endsnippet
+
+snippet ddel4 "4 param dynamic multicast delegate" b
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(F${1:MyDelegateName}, ${2:Type}, ${3:Name}, ${4:Type}, ${5:Name}, ${6:Type}, ${7:Name}, ${8:Type}, ${9:Name});$0
 endsnippet
 
 # vim: noet ts=4 sw=4
