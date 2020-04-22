@@ -65,6 +65,14 @@ UFUNCTION(${4:BlueprintPure,BlueprintImplementableEvent,BlueprintNativeEvent})
 ${1:type} ${2:MyFunc}(${3:args});
 endsnippet
 
+snippet replicatedusing "Declare a UPROPERTY replicated with a function" b
+UPROPERTY(ReplicatedUsing = OnRep_$2)
+${1:type} ${2:MyVar};
+
+UFUNCTION()
+void OnRep_$2();$0
+endsnippet
+
 # Delegates and Multicast Delegates
 
 snippet del "No parameter delegate" b
