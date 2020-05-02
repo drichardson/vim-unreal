@@ -29,6 +29,16 @@ endsnippet
 
 # Classes
 
+snippet header "Standard header file preamble." b
+#pragma once
+
+#include "CoreMinimal.h"
+
+#include "`!v expand('%:t:r')`.generated.h"
+
+$0
+endsnippet
+
 snippet actor "Declare an AActor subclass." b
 UCLASS()
 class A${1:MyActor}: public AActor
@@ -38,6 +48,20 @@ class A${1:MyActor}: public AActor
 public:
 
 	A$1();
+
+	$0
+};
+endsnippet
+
+snippet uobject "Declare a UObject subclass." b
+UCLASS()
+class U${1:MyObject}: public U${2:Object}
+{
+	GENERATED_BODY()
+
+public:
+
+	U$1();
 
 	$0
 };
