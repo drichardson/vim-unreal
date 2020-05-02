@@ -141,4 +141,10 @@ snippet ddel4 "4 param dynamic multicast delegate" b
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(F${1:MyDelegateName}, ${2:Type}, ${3:Name}, ${4:Type}, ${5:Name}, ${6:Type}, ${7:Name}, ${8:Type}, ${9:Name});$0
 endsnippet
 
+# Variables
+
+snippet cvar "console variable" b
+static TAutoConsoleVariable<${1:int32,float,FString,bool}> CVar${2:MyVar}(TEXT("$2"), 0, TEXT("${3:Help text}"));$0
+endsnippet
+
 # vim: noet ts=4 sw=4
