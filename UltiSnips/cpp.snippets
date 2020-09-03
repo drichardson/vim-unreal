@@ -85,6 +85,22 @@ struct F${1:MyStruct}
 };
 endsnippet
 
+snippet uinterface "Declare a UINTERFACE" b
+UINTERFACE(${2:BlueprintType})
+class U${1:MyInterface} : public UInterface
+{
+	GENERATED_BODY()
+};
+
+class I$1
+{
+	GENERATED_BODY();
+
+public:
+	virtual void Foo();
+};
+endsnippet
+
 snippet uprop "Declare a UPROPERTY" b
 UPROPERTY(${3:EditDefaultsOnly,BlueprintReadOnly,Replicated,Transient})
 ${1:type} ${2:MyVar};$0
