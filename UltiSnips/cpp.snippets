@@ -5,6 +5,10 @@ snippet ulog "UE_LOG will all warning levels" b
 UE_LOG(Log${1:Category}, ${2:VeryVerbose,Verbose,Log,Warning,Display,Error,Fatal}, TEXT("${3:Message}"), ${4:...});$0
 endsnippet
 
+snippet veryverbose "Very Verbose log" b
+UE_LOG(Log${1:Category}, VeryVerbose, TEXT("${2:Message}"), ${3:...});$0
+endsnippet
+
 snippet verbose "Verbose log" b
 UE_LOG(Log${1:Category}, Verbose, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
