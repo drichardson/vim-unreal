@@ -1,0 +1,46 @@
+*vim-ue4.txt*		UE4 development plugin
+
+Table of Contents~
+|ue4-intro|
+|ue4-install|
+|ue4-commands|
+
+
+==============================================================================
+INTRO                                                                *ue4-intro*
+
+This is a plugin for working with Unreal Engine 4 projects. It constists of 2
+parts: C++ snippets and ue4cli wrappers.
+
+==============================================================================
+INSTALL                                                            *ue4-install*
+
+vim-ue4 follows the standard runtime path structure and should work with any of
+the major plugin managers.
+
+Depending on your installation method, you may have to generate the plugin's
+|:helptags| manually (e.g. `:helptags ALL`).
+
+You will also need to install the following:
+
+UltiSnips https://github.com/SirVer/ultisnips
+ue4cli https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli
+
+==============================================================================
+COMMANDS							*ue4-commands*
+
+:Ue4Build							*:Ue4Build*
+
+	Run "ue4 build" using |:make|. 
+
+
+:Ue4Make target							*:Ue4Make*
+
+	Run "ue4 target" using |:make|.
+
+
+:Ue4Run								*:Ue4Run*
+
+	Run "ue4 run".
+
+ vim: tw=78 ts=8 noet ft=help norl
