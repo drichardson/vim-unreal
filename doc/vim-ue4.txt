@@ -19,7 +19,7 @@ vim-ue4 follows the standard runtime path structure and should work with any of
 the major plugin managers.
 
 Depending on your installation method, you may have to generate the plugin's
-|:helptags| manually (e.g. `:helptags ALL`).
+|:helptags| manually (e.g. :helptags ALL).
 
 You will also need to install the following:
 
