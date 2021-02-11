@@ -9,8 +9,8 @@ Table of Contents~
 ==============================================================================
 INTRO                                                                *ue4-intro*
 
-This is a plugin for working with Unreal Engine 4 projects. It constists of 2
-parts: C++ snippets and ue4cli wrappers.
+vim-ue4 is a plugin for working with Unreal Engine 4 projects using Vim. It
+consists of Ultisnip snippets for C++ and ue4cli command wrappers.
 
 ==============================================================================
 INSTALL                                                            *ue4-install*
