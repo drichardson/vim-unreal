@@ -53,11 +53,14 @@ function ue4#generate_and_use_tags()
 	call ue4#set_tags()
 endfunction
 
+" Run at top level since it needs to be done when executing a :source command.
+let s:packagedir = expand('<sfile>:p:h:h')
+
 function ue4#install()
 	"
 	" Build helptags
 	"
-	let docsdir = expand('<sfile>:p:h:h') . '/doc'
+	let docsdir = s:packagedir . '/doc'
 	echom 'Building helptags for ' . docsdir
 	execute ':helptags' docsdir
 
