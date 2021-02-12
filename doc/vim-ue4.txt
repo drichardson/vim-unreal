@@ -1,74 +1,54 @@
 *vim-ue4.txt*		UE4 development plugin
 
-Table of Contents~
-|ue4-intro|
-|ue4-install|
-|ue4-commands|
-|ue4-see-also|
-
-
-==============================================================================
-INTRO								*ue4-intro*
-
 vim-ue4 is a plugin for working with Unreal Engine 4 projects using Vim. It
-consists of |UltiSnips| snippets for C++ and ue4cli command wrappers.
+includes |UltiSnips| snippets for C++ and ue4cli command wrappers.
 
+1. Install	|ue4-install|
+2. Commands	|ue4-commands|
+3. See Also	|ue4-seealso|
 
 ==============================================================================
-INSTALL								*ue4-install*
+1. Install							*ue4-install*
 
 1. Install vim-ue4 like any standard Vim |package|.
-
-2. Run :Ue4Install
-
-3. Install Universal Ctags and make sure it's in your PATH.
-
-Depending on your installation method, you may have to generate the plugin's
-|:helptags| manually (e.g. :helptags ALL).
+2. Run |:Ue4Install|
 
 ==============================================================================
-COMMANDS							*ue4-commands*
+2. Commands							*ue4-commands*
 
-:Ue4Install
+								*:Ue4Install*
+:Ue4Install		Install ue4cli python packages check for ctags in
+			PATH.
 
-	Install ue4cli python packages.
+								*:Ue4Build*
+:Ue4Build		Run "ue4 build" using |:make|.
 
-:Ue4Build							*:Ue4Build*
+								*:Ue4Make*
+:Ue4Make {command}	Run "ue4 {command}" using |:make|.
 
-	Run "ue4 build" using |:make|. 
+								*:Ue4Run*
+:Ue4Run			Run "ue4 run".
 
-
-:Ue4Make target							*:Ue4Make*
-
-	Run "ue4 target" using |:make|.
-
-
-:Ue4Run								*:Ue4Run*
-
-	Run "ue4 run".
-
-
-:Ue4Tags							*:Ue4Tags*
-
-	Run "ue4 ctags update" and set |'tags'| to the generated tags files.
-
+								*:Ue4Tags*
+:Ue4Tags		Run "ue4 ctags update" and set |'tags'| to the
+			generated tags files.
 
 ==============================================================================
-SEE ALSO							*ue4-see-also*
+3. See Also							*ue4-see-also*
 
-ctags-ue4cli~
+ctags-ue4cli ~
 https://github.com/drichardson/ctags-ue4cli/
 Ctags plugin for ue4cli.
 
-pip~
+pip ~
 https://pypi.org/project/pip/
 pip is the package installer for Python.
 
-ue4cli~
+ue4cli ~
 https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli
 Command line interface for Unreal Engine 4.
 
-UltiSnips~
+UltiSnips ~
 https://github.com/SirVer/ultisnips
 Snippets for Vim.
 

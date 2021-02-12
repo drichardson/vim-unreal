@@ -54,6 +54,16 @@ function ue4#generate_and_use_tags()
 endfunction
 
 function ue4#install()
+	"
+	" Build helptags
+	"
+	let docsdir = expand('<sfile>:p:h:h') . '/doc'
+	echom 'Building helptags for ' . docsdir
+	execute ':helptags' docsdir
+
+	"
+	" Make sure pip is installed
+	"
 	let pip = 'pip3'
 	if !executable(pip)
 		let pip = 'pip'
@@ -63,12 +73,18 @@ function ue4#install()
 	endif
 	echom 'Found ' . pip
 
+	"
+	" Use pip to install ue4cli
+	"
 	echom 'Installing ue4cli and ctags_ue4cli'
 	call system(pip . ' install --upgrade ue4cli ctags_ue4cli')
 
+	"
+	" Check for ctags
+	"
 	echom 'Checking for ctags.exe...'
 	if executable('ctags')
-		echom 'ctags already installed'
+		echom 'ctags is installed'
 	else
 		echom 'ctags not installed'
 		if has('win32') || has('win64')
