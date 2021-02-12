@@ -4,30 +4,34 @@ Table of Contents~
 |ue4-intro|
 |ue4-install|
 |ue4-commands|
+|ue4-see-also|
 
 
 ==============================================================================
-INTRO                                                                *ue4-intro*
+INTRO								*ue4-intro*
 
 vim-ue4 is a plugin for working with Unreal Engine 4 projects using Vim. It
-consists of Ultisnip snippets for C++ and ue4cli command wrappers.
+consists of |UltiSnips| snippets for C++ and ue4cli command wrappers.
+
 
 ==============================================================================
-INSTALL                                                            *ue4-install*
+INSTALL								*ue4-install*
 
-vim-ue4 follows the standard runtime path structure and should work with any of
-the major plugin managers.
+1. Install vim-ue4 like any standard Vim |package|.
+
+2. Run :Ue4Install
+
+3. Install Universal Ctags and make sure it's in your PATH.
 
 Depending on your installation method, you may have to generate the plugin's
 |:helptags| manually (e.g. :helptags ALL).
 
-You will also need to install the following:
-
-UltiSnips https://github.com/SirVer/ultisnips
-ue4cli https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli
-
 ==============================================================================
 COMMANDS							*ue4-commands*
+
+:Ue4Install
+
+	Install ue4cli python packages.
 
 :Ue4Build							*:Ue4Build*
 
@@ -47,5 +51,26 @@ COMMANDS							*ue4-commands*
 :Ue4Tags							*:Ue4Tags*
 
 	Run "ue4 ctags update" and set |'tags'| to the generated tags files.
+
+
+==============================================================================
+SEE ALSO							*ue4-see-also*
+
+ctags-ue4cli~
+https://github.com/drichardson/ctags-ue4cli/
+Ctags plugin for ue4cli.
+
+pip~
+https://pypi.org/project/pip/
+pip is the package installer for Python.
+
+ue4cli~
+https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli
+Command line interface for Unreal Engine 4.
+
+UltiSnips~
+https://github.com/SirVer/ultisnips
+Snippets for Vim.
+
 
  vim: tw=78 ts=8 noet ft=help norl
