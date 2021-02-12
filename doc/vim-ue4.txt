@@ -34,7 +34,7 @@ includes |UltiSnips| snippets for C++ and ue4cli command wrappers.
 			generated tags files.
 
 ==============================================================================
-3. See Also							*ue4-see-also*
+3. See Also							*ue4-seealso*
 
 ctags-ue4cli ~
 https://github.com/drichardson/ctags-ue4cli/
