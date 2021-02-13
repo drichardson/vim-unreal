@@ -37,8 +37,7 @@ function ue4#generate_tags()
 endfunction
 
 function ue4#engine_tags()
-	" ue4cli can print info before the command output, so grab the last line
-	return system('ue4 ctags engine-path')->split()[-1]
+	return system('ue4 ctags engine-path')->split()[0]
 endfunction
 
 function ue4#set_tags()
