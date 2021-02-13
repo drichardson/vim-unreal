@@ -18,8 +18,14 @@ endfunction
 function ue4#make(target)
 	call s:check_ue4cli()
 
+	let root = ue4#check_project_root()
+	if root == v:null
+		return
+	endif
+
 	let saved = getcwd()
-	execute 'cd' ue4#project_root()
+
+	execute 'cd' root
 
 	setlocal makeprg=ue4
 	execute 'make' a:target
@@ -32,7 +38,7 @@ function ue4#run()
 	call s:check_ue4cli()
 
 	let saved = getcwd()
-	execute 'cd' ue4#project_root()
+	execute 'cd' ue4#check_project_root()
 
 	" https://docs.adamrehn.com/ue4cli/descriptor-commands/run
 	!start ue4 run
@@ -44,7 +50,7 @@ endfunction
 " system, this function blocks until command completes.
 function ue4#system(cmd)
 	let saved = getcwd()
-	execute 'cd' ue4#project_root()
+	execute 'cd' ue4#check_project_root()
 	let result = system(a:cmd)
 	execute 'cd' saved
 	return result
@@ -152,7 +158,7 @@ function s:search_upward(start_path, pattern, maxlevels = 20)
 	return v:null
 endfunction
 
-" Return the project root, or raise an exception if not found.
+" Return the project root or v:null if not found.
 function ue4#project_root()
 	let dir = expand('%:p')
 	if len(dir) == 0
@@ -160,10 +166,14 @@ function ue4#project_root()
 		let dir = getcwd()
 	endif
 
-	let dir = s:search_upward(dir, '*.uproject')
+	return s:search_upward(dir, '*.uproject')
+endfunction
+
+
+function ue4#check_project_root()
+	let dir = ue4#project_root()
 	if dir == v:null
-		throw '.uproject not found in any parent directory'
+		throw ".uproject not found in any parent directory."
 	endif
 	return dir
 endfunction
-
