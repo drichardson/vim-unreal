@@ -66,8 +66,7 @@ endfunction
 
 function ue4#set_tags()
 	set tags=
-	set tags=./tags
-	set tags+=tags
+	execute 'set tags+=' . ue4#project_root() . '/tags'
 	execute 'set tags+=' . ue4#engine_tags()
 endfunction
 
