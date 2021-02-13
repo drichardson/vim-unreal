@@ -17,27 +17,45 @@ endfunction
 " Run ue4 using make to get a quickfix window.
 function ue4#make(target)
 	call s:check_ue4cli()
+
+	let saved = getcwd()
+	execute 'cd' ue4#project_root()
+
 	setlocal makeprg=ue4
 	execute 'make' a:target
+
+	execute 'cd' saved
 endfunction
 
 " Start ue4 run detached so that Vim doesn't block.
 function ue4#run()
 	call s:check_ue4cli()
+
+	let saved = getcwd()
+	execute 'cd' ue4#project_root()
+
 	" https://docs.adamrehn.com/ue4cli/descriptor-commands/run
 	!start ue4 run
+
+	execute 'cd' saved
 endfunction
 
-function ue4#root()
-	call s:check_ue4cli()
+" wrapper for system that sets the cwd to the location of the .uproject. Like
+" system, this function blocks until command completes.
+function ue4#system(cmd)
+	let saved = getcwd()
+	execute 'cd' ue4#project_root()
+	let result = system(a:cmd)
+	execute 'cd' saved
+	return result
 endfunction
 
 function ue4#generate_tags()
-	call system('ue4 ctags update')
+	call ue4#system('ue4 ctags update')
 endfunction
 
 function ue4#engine_tags()
-	return system('ue4 ctags engine-path')->split()[0]
+	return ue4#system('ue4 ctags engine-path')->split()[0]
 endfunction
 
 function ue4#set_tags()
@@ -100,3 +118,52 @@ function ue4#install()
 		endif
 	endif
 endfunction
+
+" Starting at start_path, seach for a filename matching pattern up the parent
+" directories. Stop search after checking maxlevels parent directories.
+function s:search_upward(start_path, pattern, maxlevels = 20)
+	if isdirectory(a:start_path)
+		let dir = a:start_path
+	else
+		let dir = fnamemodify(a:start_path, ':h')
+	endif
+
+	let lastdir = ''
+	let levels=0
+
+	while dir != lastdir
+		let results = glob(dir . '/*.uproject', v:true, v:true)
+		if !empty(results)
+			return dir
+		endif
+
+		let lastdir=dir
+		let dir=fnamemodify(dir, ':h')
+		let levels=levels+1
+
+		" Safety valve so we don't loop forever, in case of symbolic
+		" link madness. Shouldn't happen, but just in case I'm wrong.
+		if levels > 20
+			echom 'Max upsearch search level ('.a:maxlevels.') reached.'
+			return v:null
+		endif
+	endwhile
+
+	return v:null
+endfunction
+
+" Return the project root, or raise an exception if not found.
+function ue4#project_root()
+	let dir = expand('%:p')
+	if len(dir) == 0
+		" no current filename, use working directory
+		let dir = getcwd()
+	endif
+
+	let dir = s:search_upward(dir, '*.uproject')
+	if dir == v:null
+		throw '.uproject not found in any parent directory'
+	endif
+	return dir
+endfunction
+

@@ -16,6 +16,11 @@ includes |UltiSnips| snippets for C++ and ue4cli command wrappers.
 ==============================================================================
 2. Commands							*ue4-commands*
 
+Ue4 commands require a UE4 uproject file. The location of the uproject file is
+determined by starting with the path for the current Vim buffer, and then
+searching upward through the parent directories. If the current buffer does
+not have a filename, the working directory is used instead.
+
 								*:Ue4Install*
 :Ue4Install		Install ue4cli python packages check for ctags in
 			PATH.
