@@ -1,7 +1,9 @@
 *vim-ue4.txt*		UE4 development plugin
 
 vim-ue4 is a plugin for working with Unreal Engine 4 projects using Vim. It
-includes |UltiSnips| snippets for C++ and ue4cli command wrappers.
+includes |UltiSnips| snippets for C++, ue4cli command wrappers, and sets
+'errorformat' for the |quickfix| window to handle errors from Unreal Header
+Tool, Unreal Build Tool, and Microsoft Visual C++.
 
 1. Install	|ue4-install|
 2. Commands	|ue4-commands|
