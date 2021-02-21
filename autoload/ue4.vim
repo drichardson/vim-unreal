@@ -28,9 +28,24 @@ function ue4#make(target)
 	execute 'cd' root
 
 	setlocal makeprg=ue4
+
+	setlocal errorformat=
+
+	" C# error format for errors in Build.cs and Target.cs files.
+	setlocal errorformat+=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
+
+	" C++ error format for MSVC compiler
+	setlocal errorformat+=%f\(%l\):\ %t%*\\w\ %m
+
+	" Unreal Header Tool errors
+	setlocal errorformat+=%f\(%l\):\ %t%*\\w\:\ %m
+
 	execute 'make' a:target
 
 	execute 'cd' saved
+
+	setlocal makeprg<
+	setlocal errorformat<
 endfunction
 
 " Start ue4 run detached so that Vim doesn't block.
