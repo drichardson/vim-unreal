@@ -30,15 +30,7 @@ function ue4#make(target)
 	setlocal makeprg=ue4
 
 	setlocal errorformat=
-
-	" C# error format for errors in Build.cs and Target.cs files.
-	setlocal errorformat+=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
-
-	" C++ error format for MSVC compiler
-	setlocal errorformat+=%f\(%l\):\ %t%*\\w\ %m
-
-	" Unreal Header Tool errors
-	setlocal errorformat+=%f\(%l\):\ %t%*\\w\:\ %m
+	call ue4#setlocal_errorformats()
 
 	execute 'make' a:target
 
@@ -190,4 +182,17 @@ function ue4#check_project_root()
 		throw ".uproject not found in any parent directory."
 	endif
 	return dir
+endfunction
+
+" Set errorformat to handle errors from Unreal Header Tool, Unreal Build Tool,
+" and Microsoft Visual C++.
+function ue4#setlocal_errorformats()
+	" C# error format for errors in Build.cs and Target.cs files.
+	setlocal errorformat+=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
+
+	" C++ error format for MSVC compiler
+	setlocal errorformat+=%f\(%l\):\ %t%*\\w\ %m
+
+	" Unreal Header Tool errors
+	setlocal errorformat+=%f\(%l\):\ %t%*\\w\:\ %m
 endfunction
