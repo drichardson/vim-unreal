@@ -37,6 +37,13 @@ snippet logcatdef "Define a global log category." b
 DEFINE_LOG_CATEGORY(Log$1);$0
 endsnippet
 
+snippet iflogactive "Determine if log category is active." b
+if (UE_LOG_ACTIVE(Log${1:Category}, ${2:Verbose}))
+{
+	$0
+}
+endsnippet
+
 # Classes
 
 snippet header "Standard header file preamble." b
