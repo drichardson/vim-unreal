@@ -37,11 +37,8 @@ snippet logcatdef "Define a global log category." b
 DEFINE_LOG_CATEGORY(Log$1);$0
 endsnippet
 
-snippet iflogactive "Determine if log category is active." b
-if (UE_LOG_ACTIVE(Log${1:Category}, ${2:Verbose}))
-{
-	$0
-}
+snippet logactive "Determine if log category is active." w
+UE_LOG_ACTIVE(Log${1:Category}, ${2:Verbose})
 endsnippet
 
 # Classes
@@ -182,6 +179,22 @@ endsnippet
 
 snippet cvar "console variable" b
 static TAutoConsoleVariable<${1:int32,float,FString,bool}> CVar${2:MyVar}(TEXT("$2"), 0, TEXT("${3:Help text}"));$0
+endsnippet
+
+# Iterators
+
+snippet actoriterator "TActorIterator for loop." b
+for (TActorIterator<A${1:Actor}> ${2:Itr}(GetWorld()); $2; ++$2)
+{
+	A$1* ${3:$1} = *$2;
+	$0
+}
+endsnippet
+
+# Casting
+
+snippet cast "Cast UObject and declare variable with same type." w
+${1:UMyObj}* = Cast<$1>(${2:MyVar})
 endsnippet
 
 # modeline configured to mimic Visual Studio, where the majority of UE4 development occurs.
