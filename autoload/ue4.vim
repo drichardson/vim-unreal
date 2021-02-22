@@ -194,5 +194,5 @@ function ue4#setlocal_errorformats()
 	setlocal errorformat+=%f\(%l\):\ %t%*\\w\ %m
 
 	" Unreal Header Tool errors
-	setlocal errorformat+=%f\(%l\):\ %t%*\\w\:\ %m
+	setlocal errorformat+=%f\(%l\)\ :\ %t%*\\w\:\ %m
 endfunction
