@@ -26,11 +26,11 @@ UE_LOG(Log${1:Category}, Error, TEXT("${2:Message}"), ${3:...});$0
 endsnippet
 
 snippet logcat "Define a static log category." b
-DEFINE_LOG_CATEGORY_STATIC(Log${1:Category}, Log, All)
+DEFINE_LOG_CATEGORY_STATIC(Log${1:Category}, Log, All);$0
 endsnippet
 
 snippet logcatdec "Declare a global log category." b
-DECLARE_LOG_CATEGORY_EXTERN(Log${1:Category}, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(Log${1:Category}, Log, All);$0
 endsnippet
 
 snippet logcatdef "Define a global log category." b
