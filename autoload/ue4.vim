@@ -185,14 +185,15 @@ function ue4#check_project_root()
 endfunction
 
 " Set errorformat to handle errors from Unreal Header Tool, Unreal Build Tool,
-" and Microsoft Visual C++.
+" and Microsoft Visual C++. Put these error formats at the front of the list
+" so they take precedence over any user defined error formats.
 function ue4#setlocal_errorformats()
 	" C# error format for errors in Build.cs and Target.cs files.
-	setlocal errorformat+=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
+	setlocal errorformat^=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
 
 	" C++ error format for MSVC compiler
-	setlocal errorformat+=%f\(%l\):\ %t%*\\w\ %m
+	setlocal errorformat^=%f\(%l\):\ %t%*\\w\ %m
 
 	" Unreal Header Tool errors
-	setlocal errorformat+=%f\(%l\)\ :\ %t%*\\w\:\ %m
+	setlocal errorformat^=%f\(%l\)\ :\ %t%*\\w\:\ %m
 endfunction
