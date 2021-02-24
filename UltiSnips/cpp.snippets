@@ -194,7 +194,7 @@ endsnippet
 # Casting
 
 snippet cast "Cast UObject and declare variable with same type." w
-${1:UMyObj}* = Cast<$1>(${2:MyVar})
+${1:UMyObj}* ${2:ToVar} = Cast<$1>(${3:FromVar})
 endsnippet
 
 # modeline configured to mimic Visual Studio, where the majority of UE4 development occurs.
