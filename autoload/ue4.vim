@@ -189,11 +189,11 @@ endfunction
 " so they take precedence over any user defined error formats.
 function ue4#setlocal_errorformats()
 	" C# error format for errors in Build.cs and Target.cs files.
-	setlocal errorformat^=%f\(%l\\,%c)\ :\ %t%*\\w\ %m
+	setlocal errorformat^=%f\(%l\\,%c)%*\\W:%*\\W%t%*\\w%*\\W%m
 
 	" C++ error format for MSVC compiler
-	setlocal errorformat^=%f\(%l\):\ %t%*\\w\ %m
+	setlocal errorformat^=%f\(%l\)%*\\W:%*\\W%t%*\\w%*\\W%m
 
 	" Unreal Header Tool errors
-	setlocal errorformat^=%f\(%l\)\ :\ %t%*\\w\:\ %m
+	setlocal errorformat^=%f\(%l\)%*\\W:%*\\W%t%*\\w\:%*\\W%m
 endfunction
