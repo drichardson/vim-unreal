@@ -59,5 +59,11 @@ UltiSnips ~
 https://github.com/SirVer/ultisnips
 Snippets for Vim.
 
+vim-cpp ~
+https://github.com/drichardson/vim-cpp
+C++ quality of life plugin that supports clang-format and quick
+switching between header and implementation files.
+
+
 
  vim: tw=78 ts=8 noet ft=help norl

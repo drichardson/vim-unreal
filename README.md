@@ -10,3 +10,7 @@ consists of:
 - [UltiSnips](https://github.com/SirVer/ultisnips) snippets for UE4 C++
 
 For more information, see [vim-ue4.txt](doc/vim-ue4.txt).
+
+Also see [vim-cpp](https://github.com/drichardson/vim-cpp), a generic C++ (not
+UE specific) quality of life plugin that supports clang-format and quick
+switching between header and implementation files.
