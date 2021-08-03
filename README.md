@@ -1,6 +1,6 @@
-# UE4 Development Plugin for Vim
+# Unreal Engine Development Plugin for Vim
 
-vim-ue4 is a plugin for working with Unreal Engine 4 projects using Vim. It
+vim-unreal is a plugin for working with Unreal Engine 4 projects using Vim. It
 consists of:
 
 - [ue4cli](https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli)
@@ -9,7 +9,7 @@ consists of:
   Microsoft Visual C++.
 - [UltiSnips](https://github.com/SirVer/ultisnips) snippets for UE4 C++
 
-For more information, see [vim-ue4.txt](doc/vim-ue4.txt).
+For more information, see [vim-unreal.txt](doc/vim-unreal.txt).
 
 Also see [vim-cpp](https://github.com/drichardson/vim-cpp), a generic C++ (not
 UE specific) quality of life plugin that supports clang-format and quick
