@@ -68,7 +68,10 @@ function ue4#generate_tags()
 endfunction
 
 function ue4#engine_tags()
-	return ue4#system('ue4 ctags engine-path')->split()[0]
+	" Since running any ue4 command may print the current ue4 root to
+	" standard error, always take the last line.  For more info, see: #
+	" https://github.com/adamrehn/ue4cli/pull/31
+	return ue4#system('ue4 ctags engine-path')->split()[-1]
 endfunction
 
 function ue4#set_tags()
